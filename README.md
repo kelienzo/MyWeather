@@ -25,7 +25,7 @@ distinct data and presentation layers for better organization and maintainabilit
 
 ## Getting Started
 
-* Clone the repository git clone https://github.com/kelienzo/DigiMart.git
+* Clone the repository from the master branch git clone https://github.com/kelienzo/MyWeather.git
 * Open the project in android studio
 * Resolve any configuration issues and allow the project to build.
 * Run the app on your preferred emulator or device.

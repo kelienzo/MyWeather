@@ -121,7 +121,7 @@ fun ForeCastScreen(
                 .padding(padding)
                 .padding(horizontal = 10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
-            contentPadding = PaddingValues(top = 10.dp)
+            contentPadding = PaddingValues(top = 20.dp, bottom = 20.dp)
         ) {
             foreCastUiState.run {
                 if (isLoading) {
