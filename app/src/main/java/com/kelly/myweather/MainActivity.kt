@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -53,6 +54,7 @@ class MainActivity : ComponentActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             )
         )
+        networkObserver.initialize()
         setContent {
             val isConnected by networkObserver.isConnected.collectAsStateWithLifecycle()
             val snackbarHostState = remember { SnackbarHostState() }
@@ -61,7 +63,10 @@ class MainActivity : ComponentActivity() {
                 lifecycleScope.launch { show() }
             }
 
-            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                snackbarHost = { SnackbarHost(snackbarHostState) }
+            ) { innerPadding ->
                 MyWeatherNavHost(
                     modifier = Modifier.padding(innerPadding),
                     myWeatherNavGraphs = myWeatherNavGraphs
